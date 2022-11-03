@@ -2,55 +2,51 @@
 <head>
   <title>WEB1 - JavaScript</title>
   <meta charset="utf-8">
+  <script>
+    function LinksSetColor(color){
+      var alist = document.querySelectorAll('a');
+      var i = 0;
+      while(i < alist.length){
+          alist[i].style.color = color;
+          i++;
+      }
+    }
+    function BodySetColor(color){
+      document.querySelector('body').style.color = color;
+    }
+    function BodySetBackgroundColor(color){
+        document.querySelector('body').style.backgroundColor = color;
+    }
+    function nightdayHandler(self) {
+      if(self.value === 'night'){
+        BodySetBackgroundColor('black');
+        BodySetColor('white');
+        self.value = 'day';
+        LinksSetColor('powderblue');
+      } else {
+        BodySetBackgroundColor('white');
+        BodySetColor('black');
+        self.value = 'night';
+        LinksSetColor('blue');
+      }
+    }
+  </script>
 </head>
 <body style>
   <h1><a href="index.html">WEB</a></h1>
   <input type="button" value="night" onclick="
-  var target = document.querySelector('body');
-  if(this.value === 'night'){
-    target.style.backgroundColor='black';
-    target.style.color='white';
-    this.value = 'day';
-
-    var alist = document.querySelectorAll('a');
-    var i = 0;
-    while(i < alist.length){
-        alist[i].style.color='powderblue';
-        i++;
-    }
-  } else {
-    target.style.backgroundColor='white';
-    target.style.color='black';
-    this.value = 'night';
-
-    var alist = document.querySelectorAll('a');
-    var i = 0;
-    while(i < alist.length){
-        alist[i].style.color='blue';
-        i++;
-    }
-  }
+    nightdayHandler(this);
   ">
-
     <ol>
       <li><a href="1.html">HTML</a></li>
       <li><a href="2.html">CSS</a></li>
       <li><a href="3.html">JavaScript</a></li>
     </ol>
-    <h2 style="background-color:powderblue;color:lightyellow">JavaScript</h2>
+    <h2>JavaScript</h2>
     <p>
       JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat.   JavaScript is a prototype-based, multi-paradigm, single-threaded, dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles. Read more about   JavaScript. This section is dedicated to the   JavaScript language itself, and not the parts that are specific to Web pages or other host environments. For information about APIs that are specific to Web pages, please see Web APIs and DOM.
     </p>
     <input type="button" value="night" onclick="
-    var target = document.querySelector('body');
-    if(this.value === 'night'){
-      target.style.backgroundColor='black';
-      target.style.color='white';
-      this.value = 'day';
-    } else {
-      target.style.backgroundColor='white';
-      target.style.color='black';
-      this.value = 'night';
-    }
+      nightdayHandler(this);
     ">
 </body>
